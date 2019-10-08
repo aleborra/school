@@ -1,4 +1,3 @@
-
 #include<stdio.h>
 #define MAX_VET 100
 
@@ -11,6 +10,7 @@ void scambia_int(int *ptra, int *ptrb)	// var 1 --> var 2
 	*ptrb=dep;
 
 }
+
 
 /*
 void bubble_sort_for(int *vet, int n)	// da più piccolo a più grande con 2 for
@@ -32,26 +32,30 @@ void bubble_sort_for(int *vet, int n)	// da più piccolo a più grande con 2 for
 }
 */
 
-void bubble_sort_while(int *vet; int n)		//da più piccolo a più grande con while
+
+void bubble_sort_while(int *vet, int n)	//dal più piccolo al più grande
 {
-	int i, j, scambiato;
+	int i, j, scambio;
 	i=n-1;
-	scambiato=1;
-	
-	while(scambiato&&i>0)
+	scambio=1;
+
+	while(scambio&&i>0)
 	{
-		scambiato=0;
-		for(j=0;j<n-1-i;j++)
-		{
+		scambio=0;
+		for(j=0;j<i;j++)
+		{		
 			if(vet[j]>vet[j+1])
-			{
-				scambia_int(&vet[j], &vet[j+1]);
-				scambiato= 1;
-			}
+				{
+					scambia_int(&vet[j], &vet[j+1]);
+					scambio=1;
+				}
 		}
-	i--;
+		i--;
 	}
+
 }
+
+
 void carica_vet(int *vet, int n)
 {
 	int i;
@@ -75,6 +79,7 @@ void stampa_vet(int *vet, int n)
 	}
 	printf("\n");
 }
+
 
 int main(){
 	
