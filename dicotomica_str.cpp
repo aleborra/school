@@ -23,8 +23,9 @@ void carica_str(char str[MAX_VET][MAX_STR],int n)
 {
 	int i;
 	
+	printf("\n Inserisci una frase:\n\n");
+	
 	for(i=0;i<n;i++) {
-		printf("Inserisci una parola:\n");
 		scanf("%s", str[i]);
 	}	
 }
@@ -40,28 +41,6 @@ void stampa_str(char str[MAX_VET][MAX_STR],int n)
 	}
 }
 
-
-void bubble_sort (char str[MAX_VET][MAX_STR],int n) {
-	
-	int i,j,scambio;
-	
-	i=n-1;
-	scambio=1;
-	
-	while(scambio==1&&i>0)        //va anche solo (scambio&&i>0)
-	{
-		scambio=0;
-		for(j=0;j<i;j++) 
-		{
-			if(strcmp(str[j],str[j+1])>0)
-			{
-				scambia_str(str[j],str[j+1]);
-				scambio=1;	
-			}
-		}
-		i--;
-	}
-}
 
 
 int cerca(char str[MAX_VET][MAX_STR],int n, char *el)    //ricerca dicotomica
@@ -93,21 +72,21 @@ int cerca(char str[MAX_VET][MAX_STR],int n, char *el)    //ricerca dicotomica
 int main () {
 	int n,ris;
 	char el[MAX_STR];
+	
 	printf("Quante parole vuoi inserire?\n");
 	scanf("%d",&n);
 		
 	carica_str(str,n);
-	bubble_sort(str,n);
-	stampa_str(str,n);
 		
-	printf("\nQuale parola vuoi cercare:\n");
-	printf("\n");
+	printf("\n\n Quale parola vuoi cercare:");
+	printf("\n\n");
 	scanf("%s",el);
-	ris=cerca(str,n,el);
+	
+	ris=(cerca(str,n,el)+1);
 		
 	if(ris!=-1)
-		printf("Elemento trovato in posizione %d\n",ris);
+		printf("Posizione %d\n",ris);
 	else
 		printf("Elemento non trovato\n");
 	
-	}
+}
