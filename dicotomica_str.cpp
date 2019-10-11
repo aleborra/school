@@ -64,7 +64,7 @@ void bubble_sort (char str[MAX_VET][MAX_STR],int n) {
 }
 
 
-int cerca(char str[MAX_VET][MAX_STR],int n,char el[MAX_VET][MAX_STR])    //ricerca dicotomica
+int cerca(char str[MAX_VET][MAX_STR],int n, char *el)    //ricerca dicotomica
 {
 	int i,j,med,trovato;
 	
@@ -75,10 +75,10 @@ int cerca(char str[MAX_VET][MAX_STR],int n,char el[MAX_VET][MAX_STR])    //ricer
 	while(!trovato&&i<=j)
 	{
 		med=(i+j)/2;
-		if(strcmp(str[med],el[1])==0)
+		if(strcmp(str[med],el)==0)
 			trovato=1;
 		else
-			if(strcmp(str[med],el[1])>0)    //elemento sta a sinistra
+			if(strcmp(str[med],el)>0)    //elemento sta a sinistra
 				j=med-1;	
 			else
 				i=med+1;
@@ -92,6 +92,7 @@ int cerca(char str[MAX_VET][MAX_STR],int n,char el[MAX_VET][MAX_STR])    //ricer
 	
 int main () {
 	int n,ris;
+	char el[MAX_STR];
 	printf("Quante parole vuoi inserire?\n");
 	scanf("%d",&n);
 		
@@ -99,8 +100,9 @@ int main () {
 	bubble_sort(str,n);
 	stampa_str(str,n);
 		
-	printf("\n Quale lettera vuoi cercare:\n");
-	scanf("%s",el[1]);
+	printf("\nQuale parola vuoi cercare:\n");
+	printf("\n");
+	scanf("%s",el);
 	ris=cerca(str,n,el);
 		
 	if(ris!=-1)
@@ -109,4 +111,3 @@ int main () {
 		printf("Elemento non trovato\n");
 	
 	}
-
