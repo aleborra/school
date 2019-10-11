@@ -56,6 +56,29 @@ void bubble_sort_while(int *vet, int n)	//dal più piccolo al più grande
 }
 
 
+void anti_bubble_sort_while(int *vet, int n)	//dal più grande al più piccolo
+{
+	int i, j, scambio;
+	i=n-1;
+	scambio=1;
+
+	while(scambio&&i>0)
+	{
+		scambio=0;
+		for(j=0;j<i;j++)
+		{		
+			if(vet[j]<vet[j+1])
+				{
+					scambia_int(&vet[j], &vet[j+1]);
+					scambio=1;
+				}
+		}
+		i--;
+	}
+
+}
+
+
 void carica_vet(int *vet, int n)
 {
 	int i;
@@ -89,6 +112,14 @@ int main(){
 	scanf("%d",&len);
 
 	carica_vet(numeri, len);
-	bubble_sort_while(numeri, len); //bubble_sort_for(numeri, len);
+
+	printf("premi 1 per crescente e 2 per decrescente \n");
+	scanf("%d",&ord);
+	
+	if(ord==1)
+		bubble_sort_while(numeri, len);	//bubble_sort_for(numeri, len);
+	else
+		anti_bubble_sort_while(numeri, len);
+		
 	stampa_vet(numeri, len);
 }
