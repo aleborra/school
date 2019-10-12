@@ -22,6 +22,7 @@ void carica_vet(int *vet, int n)
 	}	
 }
 
+
 void stampa_vet(int *vet,int n)
 {
 	int i;
@@ -32,13 +33,14 @@ void stampa_vet(int *vet,int n)
 	}
 }
 
+
 void bubble_sort (int *vet,int n) {
 	
 	int i,j,scambio;
 	i=(n-1);
 	scambio=1;
 	
-	while(scambio==1&&i>0)        //va anche solo scambio
+	while(i>0)        //optimized
 	{
 		scambio=0;
 		for(j=0;j<i;j++) 
@@ -50,8 +52,12 @@ void bubble_sort (int *vet,int n) {
 			}
 		}
 		i--;
+		
+		if (scambio == 0) 
+        	break; 
 	}
 }
+
 
 int cerca(int *vet,int n,int el)     //ricerca dicotomica
 {
@@ -77,23 +83,24 @@ int cerca(int *vet,int n,int el)     //ricerca dicotomica
 	else
 		return -1;
 }
+
 	
-	int main () {
-		int vet[MAX_VET],n,el,ris;
-		printf("Inserire dimensione vettore:\n");
-		scanf("%d",&n);
-		
-		carica_vet(vet,n);
-		bubble_sort(vet,n);
-		stampa_vet(vet,n);
-		printf("Quale elemento vuoi cercare:\n");
-		scanf("%d",&el);
-		ris=cerca(vet,n,el);
+int main () {
+	int vet[MAX_VET],n,el,ris;
+	printf("Inserire dimensione vettore:\n");
+	scanf("%d",&n);
+	
+	carica_vet(vet,n);
+	bubble_sort(vet,n);
+	stampa_vet(vet,n);
+	
+	printf("Quale elemento vuoi cercare:\n");
+	canf("%d",&el);
+	ris=cerca(vet,n,el);
 		
 	if(ris!=-1)
 		printf("Elemento trovato in posizione %d\n",ris);
 	else
 		printf("Elemento non trovato\n");
-	
-	}
 
+}
