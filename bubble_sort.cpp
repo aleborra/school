@@ -35,47 +35,51 @@ void bubble_sort_for(int *vet, int n)	// da più piccolo a più grande con 2 for
 
 void bubble_sort_while(int *vet, int n)	//dal più piccolo al più grande
 {
-	int i, j, scambio;
-	i=n-1;
+	int i,j,scambio;
+	i=(n-1);
 	scambio=1;
-
-	while(scambio&&i>0)
+	
+	while(i>0)        //optimized
 	{
 		scambio=0;
-		for(j=0;j<i;j++)
-		{		
+		for(j=0;j<i;j++) 
+		{
 			if(vet[j]>vet[j+1])
-				{
-					scambia_int(&vet[j], &vet[j+1]);
-					scambio=1;
-				}
+			{
+			 	scambia_int(&vet[j],&vet[j+1]);
+				scambio=1;	
+			}
 		}
 		i--;
+		
+		if (scambio == 0) 
+        	break; 
 	}
-
 }
 
 
 void anti_bubble_sort_while(int *vet, int n)	//dal più grande al più piccolo
 {
-	int i, j, scambio;
-	i=n-1;
+	int i,j,scambio;
+	i=(n-1);
 	scambio=1;
-
-	while(scambio&&i>0)
+	
+	while(i>0)        //optimized
 	{
 		scambio=0;
-		for(j=0;j<i;j++)
-		{		
+		for(j=0;j<i;j++) 
+		{
 			if(vet[j]<vet[j+1])
-				{
-					scambia_int(&vet[j], &vet[j+1]);
-					scambio=1;
-				}
+			{
+			 	scambia_int(&vet[j],&vet[j+1]);
+				scambio=1;	
+			}
 		}
 		i--;
+		
+		if (scambio == 0) 
+        	break; 
 	}
-
 }
 
 
