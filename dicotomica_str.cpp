@@ -31,18 +31,6 @@ void carica_str(char str[MAX_VET][MAX_STR],int n)
 }
 
 
-void stampa_str(char str[MAX_VET][MAX_STR],int n)
-{
-	int i;
-	
-	for(i=0;i<n;i++) {
-		
-		printf("\n%s",str[i]);
-	}
-}
-
-
-
 int cerca(char str[MAX_VET][MAX_STR],int n, char *el)    //ricerca dicotomica
 {
 	int i,j,med,trovato;
@@ -73,19 +61,19 @@ int main () {
 	int n,ris;
 	char el[MAX_STR];
 	
-	printf("Quante parole vuoi inserire?\n");
+	printf(" Quante parole vuoi inserire?\n");
 	scanf("%d",&n);
 		
 	carica_str(str,n);
 		
-	printf("\n\n Quale parola vuoi cercare:");
+	printf("\n Quale parola vuoi cercare:");
 	printf("\n\n");
 	scanf("%s",el);
 	
 	ris=(cerca(str,n,el)+1);
 		
 	if(ris!=-1)
-		printf("Posizione %d\n",ris);
+		printf("POSIZIONE %d\n",ris);
 	else
 		printf("Elemento non trovato\n");
 	
