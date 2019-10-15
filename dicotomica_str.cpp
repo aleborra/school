@@ -57,14 +57,14 @@ int cerca(char str[MAX_VET][MAX_STR],int n, char *el)    //ricerca dicotomica
 }
 
 
-void bubble_sort (char str[MAX_VET][MAX_STR],int n) {
-	
+void bubble_sort(char str[MAX_VET][MAX_STR],int n) 
+{	
 	int i,j,scambio;
 	
 	i=n-1;
 	scambio=1;
 	
-	while(scambio==1&&i>0)        //va anche solo (scambio&&i>0)
+	while(i>0)        //optimized
 	{
 		scambio=0;
 		for(j=0;j<i;j++) 
@@ -76,6 +76,9 @@ void bubble_sort (char str[MAX_VET][MAX_STR],int n) {
 			}
 		}
 		i--;
+		
+		if (scambio == 0) 
+       			break; 
 	}
 }
 
