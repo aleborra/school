@@ -5,7 +5,7 @@
 
 
 char str[MAX_VET][MAX_STR];
-char el[MAX_VET][MAX_STR];
+char el[MAX_STR];
 
 
 void scambia_str(char *str1,char *str2) 
@@ -93,7 +93,6 @@ void stampa_str(char str[MAX_VET][MAX_STR],int n)
 
 int main () {
 	int n,ris;
-	char el[MAX_STR];
 	
 	printf(" Quante parole vuoi inserire?\n");
 	scanf("%d",&n);
@@ -102,7 +101,7 @@ int main () {
 	bubble_sort(str,n);	
 	stampa_str(str,n);
 	
-	printf("\n Quale parola vuoi cercare:");
+	printf("\n\n Quale parola vuoi cercare:");
 	printf("\n\n");
 	scanf("%s",el);
 	
