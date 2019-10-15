@@ -56,7 +56,41 @@ int cerca(char str[MAX_VET][MAX_STR],int n, char *el)    //ricerca dicotomica
 		return -1;
 }
 
+
+void bubble_sort (char str[MAX_VET][MAX_STR],int n) {
 	
+	int i,j,scambio;
+	
+	i=n-1;
+	scambio=1;
+	
+	while(scambio==1&&i>0)        //va anche solo (scambio&&i>0)
+	{
+		scambio=0;
+		for(j=0;j<i;j++) 
+		{
+			if(strcmp(str[j],str[j+1])>0)
+			{
+				scambia_str(str[j],str[j+1]);
+				scambio=1;	
+			}
+		}
+		i--;
+	}
+}
+
+
+void stampa_str(char str[MAX_VET][MAX_STR],int n)
+{
+	int i;
+	
+	for(i=0;i<n;i++) {
+		
+		printf("\n%s",str[i]);
+	}
+}
+
+
 int main () {
 	int n,ris;
 	char el[MAX_STR];
@@ -65,7 +99,9 @@ int main () {
 	scanf("%d",&n);
 		
 	carica_str(str,n);
-		
+	bubble_sort(str,n);	
+	stampa_str(str,n);
+	
 	printf("\n Quale parola vuoi cercare:");
 	printf("\n\n");
 	scanf("%s",el);
