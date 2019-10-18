@@ -161,7 +161,7 @@ int main () {
 	printf("\n Quale parola vuoi inserire:");
 	printf("\n\n");
 	scanf("%s",el);
-	inserisci(str,el,&n);
+	inserire_str(str,el,&n);
 	stampa_str(str,n);
 	
 }
