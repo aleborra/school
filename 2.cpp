@@ -105,24 +105,30 @@ void cancella(char str[MAX_VET][MAX_STR],int pos, int *n)
 }
 
 
-void inserisci(char str[MAX_VET][MAX_STR],char el[MAX_STR], int *n)
+void inserire_str(char str[MAX_VET][MAX_STR],char el[MAX_STR],int *n) 
 {
 	if(*n>=MAX_VET)
 	{
-		printf(" Il vettore ha raggiunto la dimensione massima");
+		printf("Il vettore ha raggiunto la dimensione massima\n");
 		return;
 	}
-	
-	int i,trovato;
+	int i,trovato,j;
 	trovato=0;
 	i=0;
 	
 	while(i<*n&&!trovato)
-		{
-			if
-			
-		}
-	
+	{
+		if(strcmp(str[i],el)<0)
+			i++;	
+		else
+			trovato=1;
+	}
+	for(j=*n-1;j>=i;j--)
+	{
+		strcpy(str[j+1],str[j]);
+	}
+	strcpy(str[i],el);
+	*n++;
 }
 
 int main () {
